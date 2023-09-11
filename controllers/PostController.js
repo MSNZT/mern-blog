@@ -59,12 +59,12 @@ export const getOne = async (req, res) => {
 
 export const create = async (req, res) => {
   try {
-    const {title, text, image, tags} = req.body;
+    const {title, text, imageUrl, tags} = req.body;
     const data = {
       title, text, user: req.userId
     };
-    if (image) {
-      data.imageUrl = image
+    if (imageUrl) {
+      data.imageUrl = imageUrl
     }
     if (!tags) {
       delete data.tags
