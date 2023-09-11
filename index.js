@@ -12,9 +12,9 @@ app.use('/uploads', express.static('uploads'));
 
 const start = () => {
   try {
-    mongoose.connect('mongodb+srv://admin:zaqzaq99@cluster0.irlfm0a.mongodb.net/blog')
+    mongoose.connect(process.env.MONGODB_URI)
       .then(() => console.log('DB ok'));
-    app.listen(4444, () => console.log('Server is started'));
+    app.listen(process.env.PORT || 4444, () => console.log('Server is started'));
   } catch (e) {
     console.log(e)
   }
